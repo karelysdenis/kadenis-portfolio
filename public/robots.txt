@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kadenis.reakagency.com/sitemap.xml
+
+# Disallow specific paths (if any)
+Disallow: /api/
+Disallow: /*.pdf$
