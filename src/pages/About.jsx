@@ -3,23 +3,43 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import { useImageState } from '@hooks';
 import { personalInfo } from '../data/projects';
-import { aboutTechnologies } from '../data/technologies';
-import { getIcon } from '../utils/iconMap';
 
 const About = () => {
-  const technologies = aboutTechnologies;
   const { imageError, imageLoaded, handleImageError, handleImageLoad } = useImageState();
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Karelys Denis",
+      "jobTitle": "Full-Stack Developer & UX Specialist",
+      "url": "https://kadenis.reakagency.com",
+      "image": "https://kadenis.reakagency.com/images/profile.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/karelys-denis",
+        "https://github.com/faiskare"
+      ],
+      "knowsAbout": ["React", "Node.js", "JavaScript", "WordPress", "MySQL", "Tailwind CSS", "Express.js", "Azure Cloud", "UX Design"],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "ISTQB Certified Tester" },
+        { "@type": "EducationalOccupationalCredential", "name": "IT Security Specialist" }
+      ]
+    }
+  };
 
   return (
     <>
       <SEO
         title="About - Professional Background & Experience"
-        description="Computer engineer with 10+ years in software development. Expertise in WordPress, React, Node.js, and fullstack web development across enterprise, healthcare, and e-commerce sectors."
+        description="Full-stack developer and UX specialist with 10+ years building web applications. From React and Node.js platforms to AI-powered products across healthcare, e-commerce, and cultural sectors."
         canonical="/about"
-        keywords="full-stack developer, software engineer, WordPress expert, React developer, Node.js developer, web performance optimization, technical SEO"
+        keywords="full-stack developer, UX specialist, React developer, Node.js developer, web applications, user experience, frontend development"
+        structuredData={structuredData}
       />
       <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,10 +50,11 @@ const About = () => {
             About Me
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Building scalable systems and solving complex technical challenges
+            Building solutions that solve real problems for real users
           </p>
         </motion.div>
 
+        {/* Photo + Intro + Languages */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -82,14 +103,8 @@ const About = () => {
                 <h2 className="text-2xl font-bold mb-4">
                   {personalInfo.title}
                 </h2>
-                <p className="text-slate-400 leading-relaxed mb-4">
-                  {personalInfo.aboutIntro}
-                </p>
-                <p className="text-slate-400 leading-relaxed mb-4">
-                  {personalInfo.aboutCareer}
-                </p>
                 <p className="text-slate-400 leading-relaxed">
-                  Available in {personalInfo.location}. Currently developing custom WordPress platforms and fullstack React/Node.js applications.
+                  {personalInfo.bio}
                 </p>
               </div>
 
@@ -110,6 +125,7 @@ const About = () => {
           </div>
         </motion.div>
 
+        {/* What I Do */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,13 +134,30 @@ const About = () => {
           className="mb-20"
         >
           <div className="bg-slate-800 rounded-lg border border-slate-700 p-8">
-            <h2 className="text-2xl font-bold mb-4">Working Approach</h2>
+            <h2 className="text-2xl font-bold mb-4">What I Do</h2>
             <p className="text-slate-400 leading-relaxed">
-              {personalInfo.aboutApproach}
+              {personalInfo.aboutWhatIDo}
             </p>
           </div>
         </motion.div>
 
+        {/* Who I Work With */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <div className="bg-slate-800 rounded-lg border border-slate-700 p-8">
+            <h2 className="text-2xl font-bold mb-4">Who I Work With</h2>
+            <p className="text-slate-400 leading-relaxed">
+              {personalInfo.aboutWhoIWorkWith}
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Professional Experience */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,7 +172,7 @@ const About = () => {
           <div className="space-y-8">
             {personalInfo.experience.map((exp, index) => (
               <motion.div
-                key={index}
+                key={exp.title}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -151,14 +184,11 @@ const About = () => {
                 <div className="bg-slate-800 rounded-lg border border-slate-700 p-6">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
                     <div>
-                      <h3 className="text-xl font-bold">
-                        {exp.title}
-                        {exp.location && (
-                          <span className="text-slate-400"> - {exp.location}</span>
-                        )}
-                      </h3>
-                      {exp.company && (
-                        <p className="text-sm text-slate-400 mt-1">{exp.company}</p>
+                      <h3 className="text-xl font-bold">{exp.title}</h3>
+                      {(exp.company || exp.location) && (
+                        <p className="text-sm text-slate-400 mt-1">
+                          {exp.company}{exp.company && exp.location && ' · '}{exp.location}
+                        </p>
                       )}
                     </div>
                     <span className="text-sm text-slate-400 whitespace-nowrap mt-1 sm:mt-0">
@@ -172,6 +202,7 @@ const About = () => {
           </div>
         </motion.div>
 
+        {/* Education & Certifications */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +217,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {personalInfo.education.map((edu, index) => (
               <motion.div
-                key={index}
+                key={edu.degree}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -201,6 +232,7 @@ const About = () => {
           </div>
         </motion.div>
 
+        {/* What I Can Do - Categorized */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -212,34 +244,33 @@ const About = () => {
             What I Can Do
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {technologies.map((tech, index) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {Object.entries(personalInfo.whatICanDo).map(([category, skills], index) => (
               <motion.div
-                key={tech.name}
+                key={category}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-slate-800 rounded-lg border border-slate-700 p-6 text-center"
+                className="bg-slate-800 rounded-lg border border-slate-700 p-6"
               >
-                <div className="text-primary-600 mb-3 flex justify-center">
-                  {(() => {
-                    const IconComponent = getIcon(tech.iconName);
-                    return IconComponent ? <IconComponent size={48} aria-hidden="true" /> : null;
-                  })()}
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {tech.name}
+                <h3 className="text-lg font-bold text-white mb-4">
+                  {category}
                 </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  {tech.description}
-                </p>
+                <ul className="space-y-2">
+                  {skills.map((skill) => (
+                    <li key={skill} className="text-slate-400 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-primary-600 rounded-full flex-shrink-0" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -251,8 +282,7 @@ const About = () => {
             Let's Work Together
           </h2>
           <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-            Currently accepting WordPress development and fullstack React/Node.js projects.
-            Specialized in performance optimization and high-traffic platforms. Available for remote work worldwide.
+            Open to project collaborations. If you have something that needs building, let's talk.
           </p>
           <Link
             to="/contact"

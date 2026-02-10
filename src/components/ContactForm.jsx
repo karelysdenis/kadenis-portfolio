@@ -8,9 +8,9 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-
 
 // Simple rate limiting
 const SUBMISSION_COOLDOWN = 60000; // 1 minute
-let lastSubmissionTime = 0;
 
 const ContactForm = () => {
+  const lastSubmissionTimeRef = useRef(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,6 +23,7 @@ const ContactForm = () => {
   const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const statusTimeoutRef = useRef(null);
+  const formLoadTime = useRef(Date.now());
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -91,9 +92,14 @@ const ContactForm = () => {
       return;
     }
 
+    // Timing check - humans take at least 3 seconds to fill a form
+    if (Date.now() - formLoadTime.current < 3000) {
+      return;
+    }
+
     // Rate limiting
     const now = Date.now();
-    if (now - lastSubmissionTime < SUBMISSION_COOLDOWN) {
+    if (now - lastSubmissionTimeRef.current < SUBMISSION_COOLDOWN) {
       setStatus({
         type: 'error',
         message: 'Please wait before submitting another message.'
@@ -128,7 +134,7 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        lastSubmissionTime = now;
+        lastSubmissionTimeRef.current = now;
         setStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.'

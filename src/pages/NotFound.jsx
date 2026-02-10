@@ -8,7 +8,7 @@ const NotFound = () => {
       <SEO
         title="404 - Page Not Found"
         description="The page you're looking for doesn't exist. Browse Karelys Denis portfolio projects or return to the homepage."
-        canonical="/404"
+        canonical="/"
       />
       <div className="min-h-screen flex items-center justify-center px-4">
       <motion.div

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const defaultTheme = {
   primaryColor: '#22c55e',
@@ -7,34 +7,34 @@ const defaultTheme = {
   bgLight: '#2a2a2a',
 };
 
-export const useTheme = () => {
-  const [theme, setTheme] = useState(defaultTheme);
-  const [savedTheme, setSavedTheme] = useState(defaultTheme);
-  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+// Apply theme to CSS variables
+const applyTheme = (newTheme) => {
+  const root = document.documentElement;
+  root.style.setProperty('--color-primary', newTheme.primaryColor);
+  root.style.setProperty('--color-bg-dark', newTheme.bgDark);
+  root.style.setProperty('--color-bg-medium', newTheme.bgMedium);
+  root.style.setProperty('--color-bg-light', newTheme.bgLight);
+};
 
-  // Apply theme to CSS variables
-  const applyTheme = (newTheme) => {
-    const root = document.documentElement;
-    root.style.setProperty('--color-primary', newTheme.primaryColor);
-    root.style.setProperty('--color-bg-dark', newTheme.bgDark);
-    root.style.setProperty('--color-bg-medium', newTheme.bgMedium);
-    root.style.setProperty('--color-bg-light', newTheme.bgLight);
-  };
-
-  // Load theme from localStorage on mount
-  useEffect(() => {
+const getStoredTheme = () => {
+  try {
     const saved = localStorage.getItem('portfolioTheme');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        setTheme(parsed);
-        setSavedTheme(parsed);
-        applyTheme(parsed);
-      } catch (error) {
-        console.error('Error loading theme from localStorage:', error);
-      }
+    if (saved) return JSON.parse(saved);
+  } catch { /* ignore corrupt localStorage */ }
+  return null;
+};
+
+export const useTheme = () => {
+  const [theme, setTheme] = useState(() => {
+    const stored = getStoredTheme();
+    if (stored) {
+      applyTheme(stored);
+      return stored;
     }
-  }, []);
+    return defaultTheme;
+  });
+  const [savedTheme, setSavedTheme] = useState(() => getStoredTheme() || defaultTheme);
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
   // Update theme (preview only)
   const updateTheme = (key, value) => {

@@ -11,6 +11,20 @@ const Contact = () => {
   // Only show LinkedIn and GitHub (first 2 social links)
   const contactSocialLinks = socialLinks.slice(0, 2);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Karelys Denis",
+    "url": "https://kadenis.reakagency.com/contact",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Karelys Denis",
+      "email": "karelys@reakagency.com",
+      "jobTitle": "Full-Stack Developer & UX Specialist",
+      "url": "https://kadenis.reakagency.com"
+    }
+  };
+
   // Map icon types to icon components
   const getContactIcon = (type) => {
     const iconMap = {
@@ -24,9 +38,10 @@ const Contact = () => {
     <>
       <SEO
         title="Contact - Let's Work Together"
-        description="Available for remote WordPress development and fullstack React/Node.js projects. Contact Karelys Denis for web development, performance optimization, and technical SEO services."
+        description="Open to project collaborations in full-stack development and UX. Contact Karelys Denis for web applications, dashboards, and product-driven development."
         canonical="/contact"
-        keywords="hire WordPress developer, hire fullstack developer, remote web developer, web development services, performance optimization expert"
+        keywords="hire full-stack developer, hire UX developer, web application development, project collaboration, React Node.js developer"
+        structuredData={structuredData}
       />
       <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">

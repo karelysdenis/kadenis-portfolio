@@ -60,7 +60,7 @@ const SocialLinks = ({
             key={link.type}
             href={link.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener noreferrer"
             className={getLinkClasses()}
             aria-label={link.label || link.name}
           >

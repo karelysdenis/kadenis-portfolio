@@ -1,5 +1,41 @@
 export const projects = [
   {
+    id: 0,
+    title: "Applauss",
+    subtitle: "AI-Powered Event Recommendation Platform",
+    url: null,
+    category: "Enterprise Solutions",
+    industry: "AI & Technology",
+    year: 2025,
+    location: "Spain",
+    tags: ["AI Recommendations", "User Experience", "Data Dashboards"],
+    shortDescription: "AI-based event recommendation platform with intent capture, personalization features, and performance dashboards",
+    featured: false,
+    highlights: [
+      "Lead development of user-facing applications and interaction flows",
+      "AI-powered recommendation and explanation system",
+      "Custom dashboards for user behavior and system metrics",
+      "User testing protocols validating UX against research outcomes"
+    ],
+    businessImpact: [
+      "Bridging product, engineering, and AI research teams",
+      "Testable interfaces for intent capture and recommendations",
+      "Design patterns for personalization balancing user control with AI"
+    ],
+    challenge: "Early-stage AI startup needed user-facing applications for an event recommendation system, translating research hypotheses into testable interfaces for intent capture, recommendation display, and explanation mechanisms.",
+    solution: "Leading application development and UX design, implementing dashboards for monitoring user behavior, establishing user testing protocols, and defining design patterns that balance personalization with user control.",
+    results: [
+      "User-facing recommendation interfaces deployed",
+      "Performance monitoring dashboards implemented",
+      "User testing frameworks established",
+      "Cross-team collaboration patterns defined"
+    ],
+    tech: ["React", "Tailwind CSS", "Node.js", "REST APIs", "AI Integration", "Data Visualization", "UX Research"],
+    role: "Applications Lead & Co-founder",
+    duration: "Ongoing",
+    image: "/images/applauss.svg"
+  },
+  {
     id: 1,
     title: "Teatro Nescafé de las Artes",
     subtitle: "High-Traffic Cultural Platform",
@@ -223,7 +259,7 @@ export const projects = [
     title: "Creatives for the Planet",
     subtitle: "Event Management & Booking",
     url: "https://fortheplanet.global",
-    category: "E-commerce & Payments",
+    category: "Enterprise Solutions",
     industry: "Non-Profit & Events",
     year: 2022,
     location: "Ibiza, Spain",
@@ -401,7 +437,7 @@ export const projects = [
     category: "Enterprise Solutions",
     industry: "Creative & Agency",
     year: 2020,
-    location: "España",
+    location: "Spain",
     tags: ["Portfolio Display", "Client Acquisition", "Brand Showcase"],
     shortDescription: "Creative studio portfolio with project showcase and service presentation",
     businessImpact: [
@@ -542,16 +578,15 @@ export const projects = [
 
 export const personalInfo = {
   name: "Karelys Denis",
-  title: "Senior Full-Stack Developer & Performance Engineer",
+  title: "Full-Stack Developer & UX Specialist",
   location: "Chile / Spain / France",
   email: "karelys@reakagency.com",
-  linkedin: "https://linkedin.com/in/karelys-denis",
+  linkedin: "https://www.linkedin.com/in/karelys-denis",
   github: "https://github.com/faiskare/",
-  heroTagline: "I build web platforms that scale. 10+ years in software development from enterprise systems to high-traffic web applications.",
-  aboutIntro: "Computer engineer with a decade of experience in software development and digital solutions. My background spans enterprise IT systems in Venezuela's corporate sector, data automation in Chile's mining industry and fullstack web development across Spain and Latin America.",
-  aboutCareer: "Started in enterprise software implementation managing 50+ user deployments and stakeholder coordination. Moved into IT analytics and automation where I built VBA tools that reduced reporting cycles by 60%. In 2019, transitioned to fullstack web development, delivering 20+ production projects across healthcare, e-commerce and cultural sectors.",
-  aboutApproach: "I approach each project by analyzing the problem before choosing solutions. Technical decisions are driven by performance requirements, scalability needs and budget constraints. Communication is direct and progress is measurable. I document decisions, explain trade-offs and deliver working software on agreed timelines. Performance optimization and technical SEO are built in from the start.",
-  bio: "Full-stack developer with 10+ years building scalable digital solutions. I specialize in high-performance systems that handle massive traffic. My work spans cloud infrastructure to modern web applications. I've managed platforms serving 80K+ concurrent users with 99% uptime.",
+  heroTagline: "I turn product ideas into web applications people actually use. 10+ years of full-stack development with a product-first mindset.",
+  aboutWhatIDo: "I build complete web applications, from frontend interfaces to backend APIs and infrastructure. Every project starts with the business goal, not just the technical requirements. I design with real users in mind, prototype fast, and iterate based on data. I integrate well into existing teams and adapt quickly to their workflows. You get direct communication, measurable progress, and working software.",
+  aboutWhoIWorkWith: "Startups building their MVP or scaling their product. Companies needing dashboards, internal tools, or web platforms. Businesses looking to improve their digital presence and conversion. Teams that need someone who bridges product thinking and technical execution.",
+  bio: "Over 10 years and 20+ production projects in healthcare, e-commerce, legal, and cultural sectors. I build with React and Node.js for custom platforms, and WordPress for content-driven sites, always combining development with user-centered design. My approach is product-first: understand the business goal, validate with real users, and deliver software that actually solves the problem.",
   availability: "Available for remote work",
   languages: [
     { name: "Spanish", level: "Native" },
@@ -560,53 +595,53 @@ export const personalInfo = {
   ],
   metrics: [
     { value: "20+", label: "Projects Delivered" },
-    { value: "80K+", label: "Peak Concurrent Users" },
-    { value: "40%", label: "Avg Performance Boost" }
+    { value: "10+", label: "Years of Experience" },
+    { value: "15+", label: "Clients Served" }
   ],
   whatICanDo: {
-    "Custom WordPress Development": [
-      "Custom Themes & Plugins",
-      "E-commerce Integration",
-      "Performance Optimization",
-      "High-Traffic Sites"
+    "Frontend Development": [
+      "React & Custom Hooks",
+      "Tailwind CSS & Bootstrap",
+      "Component Architecture",
+      "Responsive Design"
     ],
-    "Fullstack Applications": [
-      "React 18",
-      "Node.js/Express",
+    "UX & Data Visualization": [
+      "Custom Dashboards",
+      "Interaction Flow Design",
+      "User Testing & Feedback",
+      "User-Centered Design"
+    ],
+    "Backend Development": [
+      "Node.js / Express.js",
       "REST APIs",
-      "OAuth 2 & JWT"
+      "Authentication & Security",
+      "Real-time Data Sync"
     ],
-    "Performance & Cloud": [
-      "Azure Cloud",
-      "CDN Integration",
-      "Caching Strategies",
-      "Technical SEO"
-    ],
-    "Specializations": [
-      "High-Traffic Platforms",
-      "Multilingual Sites",
-      "Healthcare Systems",
-      "E-commerce Solutions"
+    "CMS & Platforms": [
+      "WordPress (themes/plugins)",
+      "Shopify & Squarespace",
+      "E-commerce Solutions",
+      "CRM Integration"
     ]
   },
   experience: [
     {
-      title: "Fullstack Developer",
-      company: "Freelance",
+      title: "Applications Lead & Co-founder",
+      company: "Applauss",
       location: "Spain",
-      period: "2023 - Present",
-      description: "Developing fullstack web platform with React 18 and Node.js/Express backend. Implemented OAuth 2 authentication flow and RESTful APIs. Built frontend with custom hooks and event-driven architecture. Integrated multiple external APIs with real-time data synchronization."
+      period: "2025 - Present",
+      description: "Leading development of user-facing applications and interaction flows for AI-based event recommendation platform. Translating research hypotheses into testable interfaces for intent capture and recommendation display. Designing dashboards for user behavior monitoring and establishing user testing protocols to validate UX against research outcomes."
     },
     {
-      title: "Web Developer & Project Manager",
+      title: "Full-Stack Developer & Project Manager",
       company: "Freelance",
       location: "Spain",
-      period: "2019 - 2023",
-      description: "Managed web development projects for 15+ clients across Spain and Latin America. Delivered 18+ WordPress sites for culture, legal and retail sectors. Led complete project lifecycles from requirements to deployment. Improved site performance by 40% average through optimization and technical SEO. Configured Azure cloud infrastructure for high-traffic platforms."
+      period: "2019 - Present",
+      description: "Building web applications for 15+ clients across Spain and Latin America. Started with WordPress (18+ sites for culture, legal and retail sectors), then moved into React and Node.js/Express.js for custom platforms with authentication, RESTful APIs, and real-time data sync. Led complete project lifecycles from requirements to deployment. Configured Azure cloud infrastructure for high-traffic platforms."
     },
     {
       title: "IT Analyst / VBA Developer",
-      company: "BHP Mining",
+      company: "BHP Billiton",
       location: "Santiago, Chile",
       period: "2017 - 2019",
       description: "Developed Excel/VBA automation tools that reduced reporting time by 60%. Analyzed operational data for decision-making support in mining operations. Improved data processing efficiency for enterprise reporting systems."

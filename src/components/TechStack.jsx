@@ -24,7 +24,7 @@ const TechStack = () => {
             Technologies I Use
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Core stack for building scalable web applications
+            The tools I use to build web applications
           </p>
         </motion.div>
 

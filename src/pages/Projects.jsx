@@ -8,6 +8,18 @@ import { projects } from '../data/projects';
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projects Portfolio - Karelys Denis",
+    "description": "20+ production projects across healthcare, e-commerce, legal, and cultural sectors.",
+    "url": "https://kadenis.reakagency.com/projects",
+    "author": {
+      "@type": "Person",
+      "name": "Karelys Denis"
+    }
+  };
+
   const categories = useMemo(
     () => [
       'All',
@@ -31,9 +43,10 @@ const Projects = () => {
     <>
       <SEO
         title="Projects Portfolio"
-        description="Browse 20+ production projects delivered across healthcare, e-commerce, performance optimization, and enterprise solutions. WordPress, React, Node.js development."
+        description="Browse 20+ production projects delivered across healthcare, e-commerce, legal, and cultural sectors. Full-stack development with React, Node.js, and user-centered design."
         canonical="/projects"
-        keywords="web development projects, WordPress portfolio, React applications, full-stack development, e-commerce solutions, healthcare web apps"
+        keywords="web development projects, React applications, full-stack development, UX design, e-commerce solutions, user-centered web apps"
+        structuredData={structuredData}
       />
       <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">

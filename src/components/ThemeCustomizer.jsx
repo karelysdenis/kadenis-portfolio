@@ -1,47 +1,49 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaSave, FaUndo, FaCheck, FaPalette } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+
+const defaultTheme = {
+  primaryColor: '#22c55e',
+  bgDark: '#0d0d0d',
+  bgMedium: '#1a1a1a',
+  bgLight: '#2a2a2a',
+};
+
+// Apply theme to CSS variables (preview only)
+const applyTheme = (newTheme) => {
+  const root = document.documentElement;
+  root.style.setProperty('--color-primary', newTheme.primaryColor);
+  root.style.setProperty('--color-primary-light', newTheme.primaryColor);
+  root.style.setProperty('--color-primary-400', newTheme.primaryColor);
+  root.style.setProperty('--color-primary-dark', newTheme.primaryColor);
+  root.style.setProperty('--color-primary-darker', newTheme.primaryColor);
+  root.style.setProperty('--color-bg-dark', newTheme.bgDark);
+  root.style.setProperty('--color-bg-medium', newTheme.bgMedium);
+  root.style.setProperty('--color-bg-light', newTheme.bgLight);
+};
+
+const getStoredTheme = () => {
+  try {
+    const saved = localStorage.getItem('portfolioTheme');
+    if (saved) return JSON.parse(saved);
+  } catch { /* ignore corrupt localStorage */ }
+  return null;
+};
 
 const ThemeCustomizer = ({ isOpen = false, setIsOpen = () => {} }) => {
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [showSaveSuccess, setShowSaveSuccess] = useState(false);
 
-  const defaultTheme = {
-    primaryColor: '#22c55e',
-    bgDark: '#0d0d0d',
-    bgMedium: '#1a1a1a',
-    bgLight: '#2a2a2a',
-  };
-
-  const [theme, setTheme] = useState(defaultTheme);
-  const [savedTheme, setSavedTheme] = useState(defaultTheme);
-
-  // Apply theme to CSS variables (preview only)
-  const applyTheme = (newTheme) => {
-    const root = document.documentElement;
-    // Apply primary color to all variants
-    root.style.setProperty('--color-primary', newTheme.primaryColor);
-    root.style.setProperty('--color-primary-light', newTheme.primaryColor);
-    root.style.setProperty('--color-primary-400', newTheme.primaryColor);
-    root.style.setProperty('--color-primary-dark', newTheme.primaryColor);
-    root.style.setProperty('--color-primary-darker', newTheme.primaryColor);
-    // Apply background colors
-    root.style.setProperty('--color-bg-dark', newTheme.bgDark);
-    root.style.setProperty('--color-bg-medium', newTheme.bgMedium);
-    root.style.setProperty('--color-bg-light', newTheme.bgLight);
-  };
-
-  // Load theme from localStorage on mount
-  useEffect(() => {
-    const saved = localStorage.getItem('portfolioTheme');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      setTheme(parsed);
-      setSavedTheme(parsed);
-      applyTheme(parsed);
+  const [theme, setTheme] = useState(() => {
+    const stored = getStoredTheme();
+    if (stored) {
+      applyTheme(stored);
+      return stored;
     }
-  }, []);
+    return defaultTheme;
+  });
+  const [savedTheme, setSavedTheme] = useState(() => getStoredTheme() || defaultTheme);
 
   // Handle color change (preview only)
   const handleColorChange = (key, value) => {

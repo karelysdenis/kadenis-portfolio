@@ -5,6 +5,5 @@ Allow: /
 # Sitemap
 Sitemap: https://kadenis.reakagency.com/sitemap.xml
 
-# Disallow specific paths (if any)
+# Disallow specific paths
 Disallow: /api/
-Disallow: /*.pdf$

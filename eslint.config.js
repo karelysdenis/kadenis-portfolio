@@ -6,7 +6,7 @@ import react from 'eslint-plugin-react'
 
 export default [
   {
-    ignores: ['dist', 'node_modules', 'build', '*.config.js'],
+    ignores: ['dist', 'node_modules', 'build', '*.config.js', 'create-placeholders.js'],
   },
   {
     files: ['**/*.{js,jsx}'],

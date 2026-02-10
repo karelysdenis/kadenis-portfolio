@@ -16,7 +16,7 @@ const SEO = ({
   const siteName = import.meta.env.VITE_SITE_NAME || 'Karelys Denis Portfolio';
   const defaultDescription =
     import.meta.env.VITE_SITE_DESCRIPTION ||
-    'Professional portfolio showcasing 20+ production projects, technical skills, and professional experience. Senior Full-Stack Developer & Performance Engineer.';
+    'Full-stack developer and UX specialist with 10+ years building web applications. Product-first approach across healthcare, e-commerce, legal, and cultural sectors.';
 
   const fullTitle = title ? `${title} | ${siteName}` : siteName;
   const metaDescription = description || defaultDescription;

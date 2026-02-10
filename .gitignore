@@ -32,9 +32,11 @@ dist-ssr
 # Project context (private notes)
 PROJECT_CONTEXT.md
 DEPLOYMENT_GUIDE.md
+Karelys Denis CV.pdf
 
 # Refactoring
 REFACTORING_SUMMARY.md
 REFACTORING_COMPLETE.md
 CODE_AUDIT_REPORT.md
 .vercel
+create-placeholders.js

@@ -20,11 +20,6 @@ const Navbar = ({ onThemeClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
   // Close mobile menu when clicking outside
   const handleClickOutside = useCallback(() => {
     setIsOpen(false);
@@ -104,6 +99,7 @@ const Navbar = ({ onThemeClick }) => {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors ${
                   location.pathname === link.path
                     ? 'bg-primary-600 text-white'
@@ -116,7 +112,7 @@ const Navbar = ({ onThemeClick }) => {
 
             {/* Theme Customizer Button - Mobile */}
             <button
-              onClick={onThemeClick}
+              onClick={() => { onThemeClick(); setIsOpen(false); }}
               className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors"
             >
               <FaPalette size={18} />

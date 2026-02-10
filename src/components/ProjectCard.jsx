@@ -51,17 +51,19 @@ const ProjectCard = ({ project, index }) => {
         )}
 
         {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-white text-slate-900 rounded-lg font-medium flex items-center gap-2 hover:bg-primary-600 hover:text-white transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            View Site <FiExternalLink size={18} />
-          </a>
-        </div>
+        {project.url && (
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-white text-slate-900 rounded-lg font-medium flex items-center gap-2 hover:bg-primary-600 hover:text-white transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              View Site <FiExternalLink size={18} />
+            </a>
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -105,7 +107,7 @@ ProjectCard.propTypes = {
     title: PropTypes.string.isRequired,
     shortDescription: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
     year: PropTypes.number.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
