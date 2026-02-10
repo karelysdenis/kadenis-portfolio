@@ -275,9 +275,9 @@ function generatePage(route) {
   const jsonLdScript = `<script type="application/ld+json">${JSON.stringify(route.jsonLd)}</script>`;
   html = html.replace('</head>', `    ${jsonLdScript}\n  </head>`);
 
-  // Replace root content
+  // Replace root content (match root div closing before </body>)
   html = html.replace(
-    /<div id="root">[\s\S]*?<\/div>\s*(?=\n\s*<script)/,
+    /<div id="root">[\s\S]*?<\/div>\s*(?=\n\s*<\/body>)/,
     `<div id="root">${route.content}\n    </div>`
   );
 
