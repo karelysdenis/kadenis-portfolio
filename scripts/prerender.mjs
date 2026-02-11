@@ -276,9 +276,11 @@ function generatePage(route) {
   html = html.replace('</head>', `    ${jsonLdScript}\n  </head>`);
 
   // Replace root content (match root div closing before </body>)
+  // Wrap in visually-hidden div: crawlers read it, users don't see the flash
+  const hiddenStyle = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)';
   html = html.replace(
     /<div id="root">[\s\S]*?<\/div>\s*(?=\n\s*<\/body>)/,
-    `<div id="root">${route.content}\n    </div>`
+    `<div id="root"><div aria-hidden="true" style="${hiddenStyle}">${route.content}\n      </div>\n    </div>`
   );
 
   return html;
