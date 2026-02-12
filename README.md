@@ -81,4 +81,4 @@ Edit `src/data/projects.js` to update personal info, projects, experience, and e
 
 - **Email:** karelys@reakagency.com
 - **LinkedIn:** [linkedin.com/in/karelys-denis](https://www.linkedin.com/in/karelys-denis)
-- **GitHub:** [github.com/faiskare](https://github.com/faiskare)
+- **GitHub:** [github.com/karelysdenis](https://github.com/karelysdenis)

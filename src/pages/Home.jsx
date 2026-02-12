@@ -19,7 +19,7 @@ const Home = () => {
     "url": "https://kadenis.reakagency.com",
     "sameAs": [
       "https://www.linkedin.com/in/karelys-denis",
-      "https://github.com/faiskare"
+      "https://github.com/karelysdenis"
     ],
     "knowsAbout": ["WordPress", "React", "Node.js", "JavaScript", "MySQL", "Azure Cloud", "Web Performance"],
     "email": "karelys@reakagency.com",

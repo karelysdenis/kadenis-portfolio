@@ -582,7 +582,7 @@ export const personalInfo = {
   location: "Chile / Spain / France",
   email: "karelys@reakagency.com",
   linkedin: "https://www.linkedin.com/in/karelys-denis",
-  github: "https://github.com/faiskare/",
+  github: "https://github.com/karelysdenis/",
   heroTagline: "I turn product ideas into web applications people actually use. 10+ years of full-stack development with a product-first mindset.",
   aboutWhatIDo: "I build complete web applications, from frontend interfaces to backend APIs and infrastructure. Every project starts with the business goal, not just the technical requirements. I design with real users in mind, prototype fast, and iterate based on data. I integrate well into existing teams and adapt quickly to their workflows. You get direct communication, measurable progress, and working software.",
   aboutWhoIWorkWith: "Startups building their MVP or scaling their product. Companies needing dashboards, internal tools, or web platforms. Businesses looking to improve their digital presence and conversion. Teams that need someone who bridges product thinking and technical execution.",

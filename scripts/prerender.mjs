@@ -80,7 +80,7 @@ const routes = [
         <h2>Contact</h2>
         <p>Email: <a href="mailto:${personalInfo.email}">${personalInfo.email}</a></p>
         <p>LinkedIn: <a href="${personalInfo.linkedin}">linkedin.com/in/karelys-denis</a></p>
-        <p>GitHub: <a href="${personalInfo.github}">github.com/faiskare</a></p>
+        <p>GitHub: <a href="${personalInfo.github}">github.com/karelysdenis</a></p>
       </section>`,
   },
   {
@@ -207,7 +207,7 @@ const routes = [
         <h2>Get in Touch</h2>
         <p><strong>Email:</strong> <a href="mailto:${personalInfo.email}">${personalInfo.email}</a></p>
         <p><strong>LinkedIn:</strong> <a href="${personalInfo.linkedin}">linkedin.com/in/karelys-denis</a></p>
-        <p><strong>GitHub:</strong> <a href="${personalInfo.github}">github.com/faiskare</a></p>
+        <p><strong>GitHub:</strong> <a href="${personalInfo.github}">github.com/karelysdenis</a></p>
         <p><strong>Location:</strong> ${personalInfo.location}</p>
         <p><strong>${personalInfo.availability}</strong></p>
       </section>

@@ -18,7 +18,7 @@ const About = () => {
       "image": "https://kadenis.reakagency.com/images/profile.jpg",
       "sameAs": [
         "https://www.linkedin.com/in/karelys-denis",
-        "https://github.com/faiskare"
+        "https://github.com/karelysdenis"
       ],
       "knowsAbout": ["React", "Node.js", "JavaScript", "WordPress", "MySQL", "Tailwind CSS", "Express.js", "Azure Cloud", "UX Design"],
       "hasCredential": [
